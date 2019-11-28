@@ -4,6 +4,7 @@ import Movie from './Movie';
 import Weather from './Weather';
 import "./App.css";
 
+const API_KEY = '59f4bd23fcf43a0f883bdebcbbd922f5';
 class App extends React.Component{
   state = {
     isLoading: true,
@@ -26,7 +27,7 @@ class App extends React.Component{
         data: {
           main:{ temp }
         }
-      } = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=Tokyo&units=metric&appid=59f4bd23fcf43a0f883bdebcbbd922f5');
+      } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Tokyo&units=metric&appid=${API_KEY}`);
       this.setState({ temp, isLoading: false })
     });
   }
